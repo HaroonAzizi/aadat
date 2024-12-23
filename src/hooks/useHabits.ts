@@ -43,5 +43,26 @@ export const useHabits = () => {
     fetchHabits();
   }, [user]);
 
-  return { habits, loading, error };
+  const refreshHabits = async () => {
+    setLoading(true);
+    try {
+      if (!user) return;
+
+      const { data, error: supabaseError } = await supabase
+        .from("habits")
+        .select("*")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
+
+      if (supabaseError) throw supabaseError;
+
+      setHabits(data || []);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { habits, loading, error, refreshHabits };
 };
