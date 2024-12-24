@@ -102,7 +102,7 @@ const HabitCheckIn: React.FC<HabitCheckInProps> = ({
       onClick={handleCheckIn}
       isLoading={loading}
       variant="primary"
-      className="mt-2"
+      className="mt-2 text-white bg-green-600 px-2 py-1 rounded hover:bg-green-700"
     >
       Check In Today
     </Button>
