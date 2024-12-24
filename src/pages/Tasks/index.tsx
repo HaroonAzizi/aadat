@@ -6,6 +6,7 @@ import TaskList from "../../components/tasks/TaskList/TaskList";
 import TaskForm from "../../components/tasks/TaskForm/TaskForm";
 import Button from "../../components/common/Button/Button";
 import Layout from "../../components/common/Layout/Layout";
+import Footer from "../../components/common/Footer/Footer";
 
 const TasksPage = () => {
   const [showForm, setShowForm] = useState(false);
@@ -49,6 +50,7 @@ const TasksPage = () => {
           onEditTask={() => {}} // We'll implement edit functionality later
         />
       </div>
+      <Footer />
     </Layout>
   );
 };

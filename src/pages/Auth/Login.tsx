@@ -77,11 +77,15 @@ const Login = () => {
               />
             </div>
           </div>
-
-          <Button type="submit" isLoading={loading} className="w-full">
-            Sign in
-          </Button>
-
+          <div className="flex justify-center">
+            <Button
+              type="submit"
+              isLoading={loading}
+              className="bg-green-600 hover:bg-green-700 text-white rounded px-3 py-1 text-xl"
+            >
+              Sign in
+            </Button>
+          </div>
           <div className="text-center">
             <Link to="/register" className="text-blue-600 hover:text-blue-500">
               Don't have an account? Sign up

@@ -5,8 +5,8 @@ import { useHabits } from "../../hooks/useHabits";
 import Button from "../../components/common/Button/Button";
 import { supabase } from "../../services/supabase/supabaseClient";
 import { useAuth } from "../../contexts/AuthContext";
-import type TasksPage from "../Tasks";
 import Layout from "../../components/common/Layout/Layout";
+import Footer from "../../components/common/Footer/Footer";
 
 const HabitsPage = () => {
   const [showForm, setShowForm] = useState(false);
@@ -28,6 +28,21 @@ const HabitsPage = () => {
       setShowForm(false);
     } catch (error) {
       console.error("Error adding habit:", error);
+    }
+  };
+
+  const handleDeleteHabit = async (habitId: string) => {
+    console.log(`Deleting habit with id: ${habitId}`);
+    try {
+      const { error } = await supabase
+        .from("habits")
+        .delete()
+        .eq("id", habitId);
+      if (error) throw error;
+      console.log("Habit deleted successfully");
+      refreshHabits();
+    } catch (error) {
+      console.error("Error deleting habit:", error);
     }
   };
 
@@ -84,17 +99,28 @@ const HabitsPage = () => {
         <div className="grid gap-6">
           {habits.map((habit) => (
             <div key={habit.id} className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-xl font-medium mb-2">{habit.name}</h3>
-              <div className="text-sm text-gray-500">
-                <span className="mr-4">
-                  Current streak: {habit.current_streak} days
-                </span>
-                <span>Best streak: {habit.longest_streak} days</span>
+              <div className="flex justify-between items-center">
+                <div>
+                  <h3 className="text-xl font-medium mb-2">{habit.name}</h3>
+                  <div className="text-sm text-gray-500">
+                    <span className="mr-4">
+                      Current streak: {habit.current_streak} days
+                    </span>
+                    <span>Best streak: {habit.longest_streak} days</span>
+                  </div>
+                </div>
+                <Button
+                  variant="secondary"
+                  onClick={() => handleDeleteHabit(habit.id)}
+                >
+                  Delete
+                </Button>
               </div>
             </div>
           ))}
         </div>
       </div>
+      <Footer />
     </Layout>
   );
 };

@@ -101,9 +101,15 @@ const Register = () => {
             </div>
           </div>
 
-          <Button type="submit" isLoading={loading} className="w-full">
-            Sign up
-          </Button>
+          <div className="flex justify-center">
+            <Button
+              type="submit"
+              isLoading={loading}
+              className="bg-green-600 hover:bg-green-700 text-white rounded px-3 py-1 text-xl"
+            >
+              Sign up
+            </Button>
+          </div>
 
           <div className="text-center">
             <Link to="/login" className="text-blue-600 hover:text-blue-500">

@@ -32,16 +32,19 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <div className="ml-10 flex items-center space-x-4">
                 <Link
                   to="/dashboard"
-                  className="text-gray-700 hover:text-gray-900"
+                  className="text-gray-700 hover:text-green-600 hover:text-xl"
                 >
                   Dashboard
                 </Link>
-                <Link to="/tasks" className="text-gray-700 hover:text-gray-900">
+                <Link
+                  to="/tasks"
+                  className="text-gray-700 hover:text-green-600 hover:text-xl"
+                >
                   Tasks
                 </Link>
                 <Link
                   to="/habits"
-                  className="text-gray-700 hover:text-gray-900"
+                  className="text-gray-700 hover:text-green-600 hover:text-xl"
                 >
                   Habits
                 </Link>
