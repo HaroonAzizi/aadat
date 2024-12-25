@@ -105,7 +105,7 @@ const Register = () => {
             <Button
               type="submit"
               isLoading={loading}
-              className="bg-green-600 hover:bg-green-700 text-white rounded px-3 py-1 text-xl"
+              className="w-full bg-green-600 hover:bg-green-700 text-white rounded px-3 py-1 text-xl"
             >
               Sign up
             </Button>

@@ -7,7 +7,8 @@ const Footer: React.FC = () => {
     <footer className="text-black py-4">
       <div className="container mx-auto flex justify-center items-center">
         <p className="text-sm">
-          &copy; 2025 Aadat.net. All rights reserved. Developed by: Haroon Azizi
+          &copy; 2025 Aadat.net. All rights reserved. Developed by:{" "}
+          <b>Haroon Azizi</b>
           {"\u00A0\u00A0"}
         </p>
         <a

@@ -26,7 +26,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <div className="flex">
               <Link to="/dashboard" className="flex items-center">
                 <span className="text-3xl font-bold text-green-600">
-                  Aadat.net
+                  aadat.net
                 </span>
               </Link>
               <div className="ml-10 flex items-center space-x-4">
